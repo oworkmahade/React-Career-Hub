@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
 import Section from "../Section/Section";
 
 export default function JobCategoryList() {
+  // data load for job category using useState useEffect
+  const [categoryList, setCategoryList] = useState([]);
+
+  useEffect(() => {
+    fetch("/public/categories.json")
+      .then((res) => res.json())
+      .then((data) => setCategoryList(data));
+  }, []);
+
+  console.log(categoryList);
   return (
     <>
       <div className="border-red-600 border-2 my-2 p-2">
