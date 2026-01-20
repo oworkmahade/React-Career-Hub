@@ -11,10 +11,10 @@ export default function JobCategoryList() {
       .then((data) => setCategoryList(data));
   }, []);
 
-  console.log(categoryList);
+  // console.log(categoryList);
   return (
     <>
-      <div className="border-red-600 border-2 my-2 p-2">
+      <div className="border-red-600 border-2 my-2 p-2 w-3/4 mx-auto">
         <Section
           title="Job Category List"
           para="Job Category List provides a structured overview of job sectors, helping users for choosing suitable career opportunities easily"
