@@ -10,7 +10,7 @@ export default function FeaturedJobs({ jobs }) {
         // para="Featured Jobs highlights top career opportunities selected for their relevance, demand, and growth potential."
       ></Section>
 
-      <div className="grid grid-cols-2 gap-4 w-3/4 mx-auto mt-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-3/4 mx-auto mt-24">
         {jobs.map((job) => (
           <Job job={job}></Job>
         ))}
