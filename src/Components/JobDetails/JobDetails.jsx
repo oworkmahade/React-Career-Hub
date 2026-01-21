@@ -1,4 +1,8 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { CiDollar, CiLocationOn } from "react-icons/ci";
+import { MdOutlineSubtitles } from "react-icons/md";
+import { LuPhone } from "react-icons/lu";
+import { AiOutlineMail } from "react-icons/ai";
 
 export default function JobDetails() {
   const { id } = useParams();
@@ -41,31 +45,62 @@ export default function JobDetails() {
             <div>
               <h3 className="font-semibold mb-4">Job Details</h3>
               <hr className="mb-4" />
-              <p className="mb-2">
-                <span className="font-semibold">Salary:</span>{" "}
-                {selectedJob.salary} (Per Month)
-              </p>
-              <p>
-                <span className="font-semibold">Job Title:</span>{" "}
-                {selectedJob.job_title}
-              </p>
+              {/* salary  */}
+              <div className="Salary flex flex-row justify-left items-center mb-2 gap-2">
+                <span>
+                  <CiDollar />
+                </span>
+                <span>
+                  {" "}
+                  <span className="font-semibold">Salary:</span>{" "}
+                  {selectedJob.salary} (Per Month)
+                </span>
+              </div>
+              {/* Job Title  */}
+              <div className="Job-Title Salary flex flex-row justify-left  mb-2 gap-2">
+                <span className="mt-1">
+                  <MdOutlineSubtitles />
+                </span>
+                <span>
+                  <span className="font-semibold">Job Title:</span>{" "}
+                  {selectedJob.job_title}
+                </span>
+              </div>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4">Contact Information</h3>
               <hr className="mb-4" />
-              <p className="mb-2">
-                <span className="font-semibold">Phone:</span>{" "}
-                {selectedJob.contact_information.phone}
-              </p>
-              <p className="mb-2">
-                <span className="font-semibold">Email:</span>{" "}
-                {selectedJob.contact_information.email}
-              </p>
-              <p>
-                <span className="font-semibold">Address:</span>{" "}
-                {selectedJob.contact_information.address}
-              </p>
+              {/* Phone  */}
+              <div className="Phone  flex flex-row justify-left items-center mb-2 gap-2">
+                <span>
+                  <LuPhone />
+                </span>
+                <span>
+                  <span className="font-semibold">Phone:</span>{" "}
+                  {selectedJob.contact_information.phone}
+                </span>
+              </div>
+              {/* email  */}
+              <div className="email flex flex-row justify-left items-center mb-2 gap-2">
+                <span>
+                  <AiOutlineMail />
+                </span>
+                <span>
+                  <span className="font-semibold">Email:</span>{" "}
+                  {selectedJob.contact_information.email}
+                </span>
+              </div>
+              {/* address  */}
+              <div className="address flex flex-row justify-left  mb-2 gap-2">
+                <span className="mt-1">
+                  <CiLocationOn />
+                </span>
+                <span>
+                  <span className="font-semibold">Address:</span>{" "}
+                  {selectedJob.contact_information.address}
+                </span>
+              </div>
             </div>
           </div>
 
