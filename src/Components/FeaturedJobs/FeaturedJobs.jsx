@@ -4,7 +4,7 @@ import Job from "../Job/Job";
 
 export default function FeaturedJobs({ jobs }) {
   return (
-    <div className=" my-2 p-2 ">
+    <div className=" my-2 p-2 mt-24">
       <Section
         title="Featured Jobs"
         // para="Featured Jobs highlights top career opportunities selected for their relevance, demand, and growth potential."
