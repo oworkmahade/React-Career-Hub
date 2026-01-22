@@ -16,10 +16,7 @@ export default function Banner() {
             from start to finish.
           </p>
           <div className="mt-4">
-            <button
-              className="text-sm bg-gradient-to-r from-blue-500 to-purple-500 p-2 rounded-md text-white"
-              type="button"
-            >
+            <button className="px-4 py-2 bg-gradient-to-r from-[#818cf8] to-[#a78bfa] text-white font-semibold rounded-sm shadow-sm hover:opacity-90 transition-opacity">
               Get Started
             </button>
           </div>

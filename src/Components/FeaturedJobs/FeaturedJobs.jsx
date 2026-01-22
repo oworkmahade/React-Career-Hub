@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "../Section/Section";
 import Job from "../Job/Job";
+import SharedButton from "../SharedButton/SharedButton";
 
 export default function FeaturedJobs({ jobs }) {
   return (
@@ -14,6 +15,9 @@ export default function FeaturedJobs({ jobs }) {
         {jobs.map((job) => (
           <Job job={job}></Job>
         ))}
+      </div>
+      <div className="seeAll flex flex-row justify-center mt-8 w-32 mx-auto">
+        <SharedButton btnText="See All Jobs"></SharedButton>
       </div>
     </div>
   );

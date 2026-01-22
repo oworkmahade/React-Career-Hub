@@ -3,6 +3,7 @@ import { CiDollar, CiLocationOn } from "react-icons/ci";
 import { MdOutlineSubtitles } from "react-icons/md";
 import { LuPhone } from "react-icons/lu";
 import { AiOutlineMail } from "react-icons/ai";
+import SharedButton from "../SharedButton/SharedButton";
 
 export default function JobDetails() {
   const { id } = useParams();
@@ -103,10 +104,9 @@ export default function JobDetails() {
               </div>
             </div>
           </div>
-
-          <button className="mt-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 rounded-md">
-            Apply Now
-          </button>
+          <div className="applyNowBtn flex flex-row justify-center">
+            <SharedButton btnText="Apply Now"></SharedButton>
+          </div>
         </div>
       </div>
     </div>
