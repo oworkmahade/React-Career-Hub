@@ -1,8 +1,7 @@
 import React from "react";
 
 export default function CategoryList({ category }) {
-  console.log(category);
-  const { id, logo, category_name, availability } = category;
+  const { logo, category_name, availability } = category;
   return (
     <div className="w-58 p-8  rounded-lg bg-slate-50 mt-8">
       <div className="w-14 h-14 bg-blue-50 rounded-md mb-6 flex items-center justify-center">

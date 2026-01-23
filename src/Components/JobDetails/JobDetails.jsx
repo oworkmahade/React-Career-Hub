@@ -1,16 +1,36 @@
-import { useLoaderData, useParams } from "react-router-dom";
+// import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { CiDollar, CiLocationOn } from "react-icons/ci";
 import { MdOutlineSubtitles } from "react-icons/md";
 import { LuPhone } from "react-icons/lu";
 import { AiOutlineMail } from "react-icons/ai";
 import SharedButton from "../SharedButton/SharedButton";
+import { useEffect, useState } from "react";
 
 export default function JobDetails() {
   const { id } = useParams();
 
   // Solution 1
-  const jobData = useLoaderData();
+  // const jobData = useLoaderData();
+  // const selectedJob = jobData.find((job) => job.id === Number(id));
+
+  const [jobData, setJobData] = useState([]);
+
+  useEffect(() => {
+    fetch("/jobs.json")
+      .then((res) => res.json())
+      .then((data) => setJobData(data));
+  }, []);
+
   const selectedJob = jobData.find((job) => job.id === Number(id));
+  // render guard
+  if (!selectedJob) {
+    return (
+      <div className="text-center my-20 text-lg font-semibold">
+        Loading Job Details !
+      </div>
+    );
+  }
 
   return (
     <div>
