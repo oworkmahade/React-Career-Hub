@@ -1,36 +1,37 @@
-// import { useLoaderData, useParams } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { CiDollar, CiLocationOn } from "react-icons/ci";
 import { MdOutlineSubtitles } from "react-icons/md";
 import { LuPhone } from "react-icons/lu";
 import { AiOutlineMail } from "react-icons/ai";
 import SharedButton from "../SharedButton/SharedButton";
-import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import {
+  saveJobApplication,
+  getStoredJobApplication,
+} from "../../utility/localStorage";
 
 export default function JobDetails() {
   const { id } = useParams();
+  const jobs = useLoaderData();
 
-  // Solution 1
-  // const jobData = useLoaderData();
-  // const selectedJob = jobData.find((job) => job.id === Number(id));
+  const selectedJob = jobs.find((job) => job.id === Number(id));
 
-  const [jobData, setJobData] = useState([]);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("/jobs.json")
-      .then((res) => res.json())
-      .then((data) => setJobData(data));
-  }, []);
+  const handleAppliedJob = (id) => {
+    // this will give an array
+    const storedApplicationId = getStoredJobApplication();
 
-  const selectedJob = jobData.find((job) => job.id === Number(id));
-  // render guard
-  if (!selectedJob) {
-    return (
-      <div className="text-center my-20 text-lg font-semibold">
-        Loading Job Details !
-      </div>
-    );
-  }
+    if (storedApplicationId.includes(id)) {
+      toast("Already Applied !");
+    } else {
+      saveJobApplication(id);
+      toast("Job Applied Successfully !");
+      navigate("/appliedjobs");
+      // setTimeout(() => {
+      // }, 1000);
+    }
+  };
 
   return (
     <div>
@@ -125,8 +126,12 @@ export default function JobDetails() {
             </div>
           </div>
           <div className="applyNowBtn flex flex-row justify-center">
-            <SharedButton btnText="Apply Now"></SharedButton>
+            <SharedButton
+              btnText="Apply Now"
+              onClickValue={() => handleAppliedJob(parseInt(selectedJob.id))}
+            ></SharedButton>
           </div>
+          <ToastContainer />
         </div>
       </div>
     </div>
