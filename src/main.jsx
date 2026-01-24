@@ -10,6 +10,7 @@ import Blog from "./Components/Blog/Blog.jsx";
 import Appliedjobs from "./Components/AppliedJobs/AppliedJobs.jsx";
 import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
 import JobDetails from "./Components/JobDetails/JobDetails.jsx";
+import FeaturedJobs from "./Components/FeaturedJobs/FeaturedJobs.jsx";
 
 const router = createBrowserRouter([
   {
