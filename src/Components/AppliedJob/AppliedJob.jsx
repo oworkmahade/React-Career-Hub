@@ -14,7 +14,7 @@ export default function AppliedJob({ job }) {
       <div className="flex items-center gap-6">
         {/* Logo */}
         <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-lg">
-          <img src={job.logo} className="w-12" />
+          <img src={job.logo} alt={job.company_name} className="w-12" />
         </div>
 
         {/* Job Info */}
