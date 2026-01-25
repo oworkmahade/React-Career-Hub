@@ -12,18 +12,15 @@ export default function JobCategoryList() {
       .then((data) => setCategoryList(data));
   }, []);
 
-  // console.log(categoryList);
   return (
-    <>
-      <div className="my-2 p-2 w-3/4 mx-auto mt-32">
-        <Section para="Job Category List provides a structured overview of job sectors, helping users for choosing suitable career opportunities easily"></Section>
+    <div className="w-3/4 p-2 mx-auto my-2 mt-32">
+      <Section para="Job Category List provides a structured overview of job sectors, helping users for choosing suitable career opportunities easily"></Section>
 
-        <div className="JobCategoryList grid grid-cols-1 md:grid-cols-4 gap-4">
-          {categoryList.map((category) => (
-            <CategoryList category={category}></CategoryList>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 gap-4 JobCategoryList md:grid-cols-4">
+        {categoryList.map((category) => (
+          <CategoryList key={category.id} category={category}></CategoryList>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

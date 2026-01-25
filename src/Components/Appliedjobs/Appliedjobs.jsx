@@ -48,10 +48,10 @@ export default function AppliedJobs() {
   }, [jobs]);
 
   return (
-    <div className="my-2 p-2 flex flex-col gap-12">
-      <div className="filter flex flex-row justify-end mr-2">
+    <div className="flex flex-col gap-12 p-2 my-2">
+      <div className="flex flex-row justify-end mr-2 filter">
         <div className="relative inline-block group">
-          <button className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg text-sm font-medium text-gray-700">
+          <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg">
             Filter By
             <svg
               className="w-4 h-4"
@@ -69,32 +69,38 @@ export default function AppliedJobs() {
           </button>
 
           {/* Dropdown */}
-          <div className="absolute hidden group-hover:block mt-2 w-40 bg-white border rounded-lg shadow-md">
+          <div className="absolute hidden w-40 mt-2 bg-white border rounded-lg shadow-md group-hover:block">
             <ul className="text-sm text-gray-700">
-              <li
-                onClick={() => handleJobsFilter("all")}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-              >
-                All
+              <li>
+                <button
+                  onClick={() => handleJobsFilter("all")}
+                  className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                >
+                  All
+                </button>
               </li>
-              <li
-                onClick={() => handleJobsFilter("remote")}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-              >
-                Remote
+              <li>
+                <button
+                  onClick={() => handleJobsFilter("remote")}
+                  className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                >
+                  Remote
+                </button>
               </li>
-              <li
-                onClick={() => handleJobsFilter("onsite")}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-              >
-                Onsite
+              <li>
+                <button
+                  onClick={() => handleJobsFilter("onsite")}
+                  className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                >
+                  Onsite
+                </button>
               </li>
             </ul>
           </div>
         </div>
       </div>
       {displayJobs.map((job) => (
-        <AppliedJob job={job}></AppliedJob>
+        <AppliedJob key={job.id} job={job}></AppliedJob>
       ))}
     </div>
   );

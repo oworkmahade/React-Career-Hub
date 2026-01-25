@@ -28,47 +28,45 @@ export default function JobDetails() {
       saveJobApplication(id);
       toast("Job Applied Successfully !");
       navigate("/appliedjobs");
-      // setTimeout(() => {
-      // }, 1000);
     }
   };
 
   return (
     <div>
-      <div className="w-3/4 mx-auto my-10   rounded-md grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid w-3/4 grid-cols-1 gap-8 mx-auto my-10 rounded-md md:grid-cols-3">
         {/* LEFT SIDE */}
-        <div className="md:col-span-2 space-y-6 text-sm leading-relaxed">
+        <div className="space-y-6 text-sm leading-relaxed md:col-span-2">
           <div>
-            <h3 className="font-semibold mb-2">Job Description:</h3>
+            <h3 className="mb-2 font-semibold">Job Description:</h3>
             <p className="text-gray-600">{selectedJob.job_description}</p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-2">Job Responsibility:</h3>
+            <h3 className="mb-2 font-semibold">Job Responsibility:</h3>
             <p className="text-gray-600">{selectedJob.job_responsibility}</p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-2">Educational Requirements:</h3>
+            <h3 className="mb-2 font-semibold">Educational Requirements:</h3>
             <p className="text-gray-600">
               {selectedJob.educational_requirements}
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-2">Experiences:</h3>
+            <h3 className="mb-2 font-semibold">Experiences:</h3>
             <p className="text-gray-600">{selectedJob.experiences}</p>
           </div>
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="bg-blue-50 rounded-md p-6 flex flex-col justify-between">
+        <div className="flex flex-col justify-between p-6 rounded-md bg-blue-50">
           <div className="space-y-6">
             <div>
-              <h3 className="font-semibold mb-4">Job Details</h3>
+              <h3 className="mb-4 font-semibold">Job Details</h3>
               <hr className="mb-4" />
               {/* salary  */}
-              <div className="Salary flex flex-row justify-left items-center mb-2 gap-2">
+              <div className="flex flex-row items-center gap-2 mb-2 Salary justify-left">
                 <span>
                   <CiDollar />
                 </span>
@@ -79,7 +77,7 @@ export default function JobDetails() {
                 </span>
               </div>
               {/* Job Title  */}
-              <div className="Job-Title Salary flex flex-row justify-left  mb-2 gap-2">
+              <div className="flex flex-row gap-2 mb-2 Job-Title Salary justify-left">
                 <span className="mt-1">
                   <MdOutlineSubtitles />
                 </span>
@@ -91,10 +89,10 @@ export default function JobDetails() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4">Contact Information</h3>
+              <h3 className="mb-4 font-semibold">Contact Information</h3>
               <hr className="mb-4" />
               {/* Phone  */}
-              <div className="Phone  flex flex-row justify-left items-center mb-2 gap-2">
+              <div className="flex flex-row items-center gap-2 mb-2 Phone justify-left">
                 <span>
                   <LuPhone />
                 </span>
@@ -104,7 +102,7 @@ export default function JobDetails() {
                 </span>
               </div>
               {/* email  */}
-              <div className="email flex flex-row justify-left items-center mb-2 gap-2">
+              <div className="flex flex-row items-center gap-2 mb-2 email justify-left">
                 <span>
                   <AiOutlineMail />
                 </span>
@@ -114,7 +112,7 @@ export default function JobDetails() {
                 </span>
               </div>
               {/* address  */}
-              <div className="address flex flex-row justify-left  mb-2 gap-2">
+              <div className="flex flex-row gap-2 mb-2 address justify-left">
                 <span className="mt-1">
                   <CiLocationOn />
                 </span>
@@ -125,7 +123,7 @@ export default function JobDetails() {
               </div>
             </div>
           </div>
-          <div className="applyNowBtn flex flex-row justify-center">
+          <div className="flex flex-row justify-center applyNowBtn">
             <SharedButton
               btnText="Apply Now"
               onClickValue={() => handleAppliedJob(parseInt(selectedJob.id))}
